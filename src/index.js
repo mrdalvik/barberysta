@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const { BrewingMethod } = require('./lib/calculation/brewing-method');
 
-const bot = new TelegramBot('6954950931:AAGKBbqwO-QPODXdMR9HyTh_QlvvS4HzLe8', {
+const bot = new TelegramBot('', {
     polling: true,
 });
 
