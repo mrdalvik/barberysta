@@ -14,7 +14,30 @@ bot.on('text', async (msg) => {
 
     const coffeeGrams = parseInt(msg.text, 10);
     if (Number.isNaN(coffeeGrams)) {
-        await bot.sendMessage(msg.chat.id, 'Enter the number, how many grams of coffee do you want to brew?');
+        const response = 'Enter the number, how many grams of coffee do you want to brew? 😌';
+        console.log(msg.chat.first_name, msg.chat.last_name, response);
+
+        await bot.sendMessage(msg.chat.id, response);
+
+        return;
+    }
+
+    if (coffeeGrams < 0)
+    {
+        const response = 'How is that less than zero? Everything is for you, but I won’t give you my coffee 😅';
+        console.log(msg.chat.first_name, msg.chat.last_name, response);
+
+        await bot.sendMessage(msg.chat.id, response);
+
+        return;
+    }
+
+    if (coffeeGrams === 0)
+    {
+        const response = "We can't brew anything without coffee 🥲";
+        console.log(msg.chat.first_name, msg.chat.last_name, response);
+
+        await bot.sendMessage(msg.chat.id, response);
 
         return;
     }
@@ -29,6 +52,7 @@ bot.on('text', async (msg) => {
     const wishText = `I wish you a good cup 😉☕️`;
 
     const response = `${introText}\n${coffeeText}\n${waterText}\n${timeText}\n\n${wishText}`;
+    console.log(msg.chat.first_name, msg.chat.last_name, response);
 
     await bot.sendMessage(msg.chat.id, response);
 })
