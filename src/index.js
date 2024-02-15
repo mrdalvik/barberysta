@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const { BrewingMethod } = require('./lib/calculation/brewing-method');
 
-const bot = new TelegramBot('', {
+const bot = new TelegramBot('6954950931:AAGKBbqwO-QPODXdMR9HyTh_QlvvS4HzLe8', {
     polling: true,
 });
 
@@ -13,8 +13,7 @@ bot.on('text', async (msg) => {
     });
 
     const coffeeGrams = parseInt(msg.text, 10);
-    if (Number.isNaN(coffeeGrams))
-    {
+    if (Number.isNaN(coffeeGrams)) {
         await bot.sendMessage(msg.chat.id, 'Enter the number, how many grams of coffee do you want to brew?');
 
         return;
