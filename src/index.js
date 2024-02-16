@@ -1,10 +1,16 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 const { BrewingMethod } = require('./lib/brewing-method');
+const { Config } = require('./lib/config');
 const { Recipe } = require('./lib/recipe');
 const { RecipePrinter } = require('./lib/recipe-printer');
+const { serviceLocator } = require('./lib/service-locator');
 
-const bot = new TelegramBot('', {
+const PROJECT_ROOT = __dirname + '/../';
+const config = new Config(PROJECT_ROOT + 'config.json');
+serviceLocator.add('config', config);
+
+const bot = new TelegramBot(serviceLocator.get('config').get('telegramBotToken'), {
     polling: true,
 });
 
