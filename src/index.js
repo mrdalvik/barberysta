@@ -6,8 +6,8 @@ const { Recipe } = require('./lib/recipe');
 const { RecipePrinter } = require('./lib/recipe-printer');
 const { serviceLocator } = require('./lib/service-locator');
 
-const PROJECT_ROOT = __dirname + '/../';
-const config = new Config(PROJECT_ROOT + 'config.json');
+const ROOT_DIR = __dirname + '/../';
+const config = new Config(ROOT_DIR + 'config.json');
 serviceLocator.add('config', config);
 
 const bot = new TelegramBot(serviceLocator.get('config').get('telegramBotToken'), {
