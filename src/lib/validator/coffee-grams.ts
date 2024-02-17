@@ -37,6 +37,6 @@ export default class CoffeeGramsValidator {
   }
 
   get isValidValue (): boolean {
-    return (Boolean(this.errorMessage))
+    return this.errorMessage === ''
   }
 }
