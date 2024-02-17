@@ -1,10 +1,10 @@
 import TelegramBot from 'node-telegram-bot-api';
 
 import BrewingMethod from './lib/brewing-method.js';
-import Config from './lib/config.js';
+import Config from './lib/core/config.js';
 import Recipe from './lib/recipe.js';
 import RecipePrinter from './lib/recipe-printer.js';
-import { serviceLocator } from './lib/service-locator.js';
+import { serviceLocator } from './lib/core/service-locator.js';
 
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

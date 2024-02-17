@@ -1,4 +1,4 @@
-import TimeFormatter from './time-formatter.js';
+import TimeFormatter from './core/time-formatter.js';
 
 export default class RecipePrinter {
     #recipe;
