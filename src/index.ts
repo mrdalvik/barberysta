@@ -1,15 +1,11 @@
 import TelegramBot from 'node-telegram-bot-api'
 
 import BrewingMethod from './lib/brewing-method.js'
+import { ROOT_DIR } from './lib/core/environment-variables.js'
 import Config from './lib/core/config.js'
 import Recipe from './lib/recipe.js'
 import RecipePrinter from './lib/recipe-printer.js'
 import { serviceLocator } from './lib/core/service-locator.js'
-
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-const DIR_NAME = dirname(fileURLToPath(import.meta.url))
-const ROOT_DIR = DIR_NAME + '/../'
 
 const config = new Config(ROOT_DIR + 'config.json')
 serviceLocator.add('config', config)
