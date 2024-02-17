@@ -1,4 +1,4 @@
-class TimeFormatter {
+export default class TimeFormatter {
     static secondsToMinutesAndSeconds(seconds) {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
@@ -18,7 +18,3 @@ class TimeFormatter {
         return formattedSting;
     }
 }
-
-module.exports = {
-    TimeFormatter,
-};

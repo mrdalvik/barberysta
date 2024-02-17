@@ -1,6 +1,6 @@
-const fs = require('fs');
+import fs from 'fs';
 
-class Config {
+export default class Config {
     #filePath;
     #config;
 
@@ -11,7 +11,8 @@ class Config {
 
     #load() {
         try {
-            this.#config = require(this.#filePath);
+            const configFileData = fs.readFileSync(this.#filePath);
+            this.#config = JSON.parse(configFileData);
         } catch (error) {
             console.error('Error reading configuration file:', error);
         }
@@ -26,7 +27,3 @@ class Config {
         return value;
     }
 }
-
-module.exports = {
-    Config,
-};

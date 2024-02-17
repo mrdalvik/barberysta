@@ -1,6 +1,6 @@
-const { TimeFormatter } = require('./time-formatter');
+import TimeFormatter from './time-formatter.js';
 
-class RecipePrinter {
+export default class RecipePrinter {
     #recipe;
 
     constructor(recipe) {
@@ -23,7 +23,3 @@ class RecipePrinter {
         return formattedText;
     }
 }
-
-module.exports = {
-    RecipePrinter,
-};

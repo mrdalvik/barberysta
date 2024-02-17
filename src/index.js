@@ -1,12 +1,16 @@
-const TelegramBot = require('node-telegram-bot-api');
+import TelegramBot from 'node-telegram-bot-api';
 
-const { BrewingMethod } = require('./lib/brewing-method');
-const { Config } = require('./lib/config');
-const { Recipe } = require('./lib/recipe');
-const { RecipePrinter } = require('./lib/recipe-printer');
-const { serviceLocator } = require('./lib/service-locator');
+import BrewingMethod from './lib/brewing-method.js';
+import Config from './lib/config.js';
+import Recipe from './lib/recipe.js';
+import RecipePrinter from './lib/recipe-printer.js';
+import { serviceLocator } from './lib/service-locator.js';
 
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = __dirname + '/../';
+
 const config = new Config(ROOT_DIR + 'config.json');
 serviceLocator.add('config', config);
 

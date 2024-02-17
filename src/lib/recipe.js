@@ -1,4 +1,4 @@
-class Recipe {
+export default class Recipe {
     #brewingMethod;
     #coffeeGrams;
     #waterAmount;
@@ -34,7 +34,3 @@ class Recipe {
         return this.#brewingTimeInSeconds;
     }
 }
-
-module.exports = {
-    Recipe,
-};

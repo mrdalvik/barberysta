@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Telegram bot to help baristas.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node ./src/index.js",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +24,8 @@
   "homepage": "https://github.com/mrdalvik/barberysta#readme",
   "dependencies": {
     "node-telegram-bot-api": "^0.63.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
   }
 }

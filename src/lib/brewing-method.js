@@ -1,6 +1,6 @@
 const ONE_LITER_IN_MILLILITERS = 1000;
 
-class BrewingMethod {
+export default class BrewingMethod {
     #name;
     #coffeeGramsPerLiter;
     #brewingTimePerLiterInSeconds;
@@ -40,7 +40,3 @@ class BrewingMethod {
         return +brewingTime.toFixed(0);
     }
 }
-
-module.exports = {
-    BrewingMethod,
-};

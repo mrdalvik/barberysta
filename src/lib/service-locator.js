@@ -24,7 +24,9 @@ class ServiceLocator {
 	}
 }
 
-module.exports = {
-    ServiceLocator,
-    serviceLocator: new ServiceLocator(),
-};
+const serviceLocator = new ServiceLocator();
+
+export {
+	ServiceLocator,
+	serviceLocator,
+}
