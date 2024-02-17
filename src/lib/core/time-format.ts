@@ -1,20 +1,20 @@
 function secondsToMinutesAndSeconds (seconds: number): string {
   const minutes = Math.floor(seconds / 60)
   const remainingSeconds = seconds % 60
-  let formattedSting = ''
+  let minutesAndSecondsText = ''
   if (minutes > 0) {
-    formattedSting += `${minutes} min.`
+    minutesAndSecondsText += `${minutes} min.`
   }
 
   if (minutes > 0 && seconds > 0) {
-    formattedSting += ' '
+    minutesAndSecondsText += ' '
   }
 
   if (remainingSeconds > 0) {
-    formattedSting += `${remainingSeconds} sec.`
+    minutesAndSecondsText += `${remainingSeconds} sec.`
   }
 
-  return formattedSting
+  return minutesAndSecondsText
 }
 
 export {
