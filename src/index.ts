@@ -18,8 +18,9 @@ const bot = new TelegramBot(serviceLocator.get('config').get('telegramBotToken')
     polling: true,
 });
 
-bot.on('text', async (message) => {
-    const coffeeGrams = parseInt(message.text, 10);
+bot.on('text', async (message: TelegramBot.Message) => {
+    const messageText = message.text ?? '';
+    const coffeeGrams = parseInt(messageText, 10);
     if (Number.isNaN(coffeeGrams)) {
         const response = 'Enter the number, how many grams of coffee do you want to brew? 😌';
         console.log(message.chat.first_name, message.chat.last_name, (new Date()).toUTCString(), response);

@@ -33,7 +33,7 @@ export default class BrewingMethod {
         return +waterAmount.toFixed(1);
     }
 
-    calculateBrewingTimeInSeconds(coffeeGrams) {
+    calculateBrewingTimeInSeconds(coffeeGrams: number) {
         const waterAmount = this.calculateWaterAmount(coffeeGrams);
         const brewingTime = (this.brewingTimePerLiterInSeconds * waterAmount) / ONE_LITER_IN_MILLILITERS;
 

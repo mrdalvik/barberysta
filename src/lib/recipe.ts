@@ -1,17 +1,19 @@
+import BrewingMethod from './brewing-method.js';
+
 export default class Recipe {
     #brewingMethod;
     #coffeeGrams;
     #waterAmount;
     #brewingTimeInSeconds;
 
-    static createByCoffeeGrams(brewingMethod, coffeeGrams) {
+    static createByCoffeeGrams(brewingMethod: BrewingMethod, coffeeGrams: number) {
         const waterAmount = brewingMethod.calculateWaterAmount(coffeeGrams);
         const brewingTimeInSeconds = brewingMethod.calculateBrewingTimeInSeconds(coffeeGrams);
 
         return new this(brewingMethod, coffeeGrams, waterAmount, brewingTimeInSeconds);
     }
 
-    constructor(brewingMethod, coffeeGrams, waterAmount, brewingTimeInSeconds) {
+    constructor(brewingMethod: BrewingMethod, coffeeGrams: number, waterAmount: number, brewingTimeInSeconds: number) {
         this.#brewingMethod = brewingMethod;
         this.#coffeeGrams = coffeeGrams;
         this.#waterAmount = waterAmount;

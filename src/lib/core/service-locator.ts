@@ -5,11 +5,11 @@ class ServiceLocator {
 		this.#serviceCollection = new Map();
 	}
 
-	has(serviceName) {
+	has(serviceName: string) {
 		return this.#serviceCollection.has(serviceName);
 	}
 
-	get(serviceName) {
+	get(serviceName: string) {
 		if (!this.has(serviceName)) {
 			return null;
 		}
@@ -17,7 +17,7 @@ class ServiceLocator {
 		return this.#serviceCollection.get(serviceName);
 	}
 
-	add(serviceName, service) {
+	add(serviceName: string, service: any) {
 		this.#serviceCollection.set(serviceName, service);
 
 		return this;

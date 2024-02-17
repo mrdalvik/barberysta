@@ -1,9 +1,10 @@
+import Recipe from './recipe.js';
 import TimeFormatter from './core/time-formatter.js';
 
 export default class RecipePrinter {
     #recipe;
 
-    constructor(recipe) {
+    constructor(recipe: Recipe) {
         this.#recipe = recipe;
     }
 

@@ -1,5 +1,5 @@
 export default class TimeFormatter {
-    static secondsToMinutesAndSeconds(seconds) {
+    static secondsToMinutesAndSeconds(seconds: number) {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
         let formattedSting = '';
