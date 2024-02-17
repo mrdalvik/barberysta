@@ -1,26 +1,26 @@
-import Recipe from './recipe.js';
-import TimeFormatter from './core/time-formatter.js';
+import type Recipe from './recipe.js'
+import { secondsToMinutesAndSeconds } from './core/time-format.js'
 
 export default class RecipePrinter {
-    #recipe;
+  readonly #recipe
 
-    constructor(recipe: Recipe) {
-        this.#recipe = recipe;
-    }
+  constructor (recipe: Recipe) {
+    this.#recipe = recipe
+  }
 
-    get recipe() {
-        return this.#recipe;
-    }
+  get recipe (): Recipe {
+    return this.#recipe
+  }
 
-    getTelegramMessageText() {
-        const introText = `Your recipe for the most delicious ${this.recipe.brewingMethod.name}:`;
-        const coffeeText = `🫘 Coffee: ${this.recipe.coffeeGrams} gm.`;
-        const waterText = `💧 Water: ${this.recipe.waterAmount} ml.`;
-        const timeText = `⏱️ Brewing time: ${TimeFormatter.secondsToMinutesAndSeconds(this.recipe.brewingTimeInSeconds)}`;
-        const wishText = `I wish you a good cup 😉☕️`;
-    
-        const formattedText = `${introText}\n${coffeeText}\n${waterText}\n${timeText}\n\n${wishText}`;
+  getTelegramMessageText (): string {
+    const introText = `Your recipe for the most delicious ${this.recipe.brewingMethod.name}:`
+    const coffeeText = `🫘 Coffee: ${this.recipe.coffeeGrams} gm.`
+    const waterText = `💧 Water: ${this.recipe.waterAmount} ml.`
+    const timeText = `⏱️ Brewing time: ${secondsToMinutesAndSeconds(this.recipe.brewingTimeInSeconds)}`
+    const wishText = 'I wish you a good cup 😉☕️'
 
-        return formattedText;
-    }
+    const formattedText = `${introText}\n${coffeeText}\n${waterText}\n${timeText}\n\n${wishText}`
+
+    return formattedText
+  }
 }

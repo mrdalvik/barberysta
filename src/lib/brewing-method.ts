@@ -1,42 +1,42 @@
-const ONE_LITER_IN_MILLILITERS = 1000;
+const ONE_LITER_IN_MILLILITERS = 1000
 
 export default class BrewingMethod {
-    #name;
-    #coffeeGramsPerLiter;
-    #brewingTimePerLiterInSeconds;
-    
-    constructor({
-        name = 'coffee',
-        coffeeGramsPerLiter = 0,
-        brewingTimePerLiterInSeconds = 0,
-    }) {
-        this.#name = name;
-        this.#coffeeGramsPerLiter = coffeeGramsPerLiter;
-        this.#brewingTimePerLiterInSeconds = brewingTimePerLiterInSeconds;
-    }
+  readonly #name
+  readonly #coffeeGramsPerLiter
+  readonly #brewingTimePerLiterInSeconds
 
-    get name() {
-        return this.#name;
-    }
+  constructor ({
+    name = 'coffee',
+    coffeeGramsPerLiter = 0,
+    brewingTimePerLiterInSeconds = 0
+  }) {
+    this.#name = name
+    this.#coffeeGramsPerLiter = coffeeGramsPerLiter
+    this.#brewingTimePerLiterInSeconds = brewingTimePerLiterInSeconds
+  }
 
-    get coffeeGramsPerLiter() {
-        return this.#coffeeGramsPerLiter;
-    }
+  get name (): string {
+    return this.#name
+  }
 
-    get brewingTimePerLiterInSeconds() {
-        return this.#brewingTimePerLiterInSeconds;
-    }
+  get coffeeGramsPerLiter (): number {
+    return this.#coffeeGramsPerLiter
+  }
 
-    calculateWaterAmount(coffeeGrams = 0) {
-        const waterAmount = (ONE_LITER_IN_MILLILITERS * coffeeGrams) / this.coffeeGramsPerLiter;
+  get brewingTimePerLiterInSeconds (): number {
+    return this.#brewingTimePerLiterInSeconds
+  }
 
-        return +waterAmount.toFixed(1);
-    }
+  calculateWaterAmount (coffeeGrams = 0): number {
+    const waterAmount = (ONE_LITER_IN_MILLILITERS * coffeeGrams) / this.coffeeGramsPerLiter
 
-    calculateBrewingTimeInSeconds(coffeeGrams: number) {
-        const waterAmount = this.calculateWaterAmount(coffeeGrams);
-        const brewingTime = (this.brewingTimePerLiterInSeconds * waterAmount) / ONE_LITER_IN_MILLILITERS;
+    return +waterAmount.toFixed(1)
+  }
 
-        return +brewingTime.toFixed(0);
-    }
+  calculateBrewingTimeInSeconds (coffeeGrams: number): number {
+    const waterAmount = this.calculateWaterAmount(coffeeGrams)
+    const brewingTime = (this.brewingTimePerLiterInSeconds * waterAmount) / ONE_LITER_IN_MILLILITERS
+
+    return +brewingTime.toFixed(0)
+  }
 }

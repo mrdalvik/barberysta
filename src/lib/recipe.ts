@@ -1,38 +1,38 @@
-import BrewingMethod from './brewing-method.js';
+import type BrewingMethod from './brewing-method.js'
 
 export default class Recipe {
-    #brewingMethod;
-    #coffeeGrams;
-    #waterAmount;
-    #brewingTimeInSeconds;
+  readonly #brewingMethod
+  readonly #coffeeGrams
+  readonly #waterAmount
+  readonly #brewingTimeInSeconds
 
-    static createByCoffeeGrams(brewingMethod: BrewingMethod, coffeeGrams: number) {
-        const waterAmount = brewingMethod.calculateWaterAmount(coffeeGrams);
-        const brewingTimeInSeconds = brewingMethod.calculateBrewingTimeInSeconds(coffeeGrams);
+  static createByCoffeeGrams (brewingMethod: BrewingMethod, coffeeGrams: number): Recipe {
+    const waterAmount = brewingMethod.calculateWaterAmount(coffeeGrams)
+    const brewingTimeInSeconds = brewingMethod.calculateBrewingTimeInSeconds(coffeeGrams)
 
-        return new this(brewingMethod, coffeeGrams, waterAmount, brewingTimeInSeconds);
-    }
+    return new this(brewingMethod, coffeeGrams, waterAmount, brewingTimeInSeconds)
+  }
 
-    constructor(brewingMethod: BrewingMethod, coffeeGrams: number, waterAmount: number, brewingTimeInSeconds: number) {
-        this.#brewingMethod = brewingMethod;
-        this.#coffeeGrams = coffeeGrams;
-        this.#waterAmount = waterAmount;
-        this.#brewingTimeInSeconds = brewingTimeInSeconds;
-    }
+  constructor (brewingMethod: BrewingMethod, coffeeGrams: number, waterAmount: number, brewingTimeInSeconds: number) {
+    this.#brewingMethod = brewingMethod
+    this.#coffeeGrams = coffeeGrams
+    this.#waterAmount = waterAmount
+    this.#brewingTimeInSeconds = brewingTimeInSeconds
+  }
 
-    get brewingMethod() {
-        return this.#brewingMethod;
-    }
+  get brewingMethod (): BrewingMethod {
+    return this.#brewingMethod
+  }
 
-    get coffeeGrams() {
-        return this.#coffeeGrams;
-    }
+  get coffeeGrams (): number {
+    return this.#coffeeGrams
+  }
 
-    get waterAmount() {
-        return this.#waterAmount;
-    }
+  get waterAmount (): number {
+    return this.#waterAmount
+  }
 
-    get brewingTimeInSeconds() {
-        return this.#brewingTimeInSeconds;
-    }
+  get brewingTimeInSeconds (): number {
+    return this.#brewingTimeInSeconds
+  }
 }
