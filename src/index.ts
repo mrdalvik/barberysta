@@ -3,6 +3,7 @@ import TelegramBot from 'node-telegram-bot-api'
 import BrewingMethod from './lib/brewing-method.js'
 import { ROOT_DIR } from './lib/core/environment-variables.js'
 import CoffeeGramsValidator from './lib/validator/coffee-grams.js'
+import Command from './lib/core/command.js'
 import Config from './lib/core/config.js'
 import Recipe from './lib/recipe.js'
 import RecipePrinter from './lib/recipe-printer.js'
@@ -16,8 +17,28 @@ const bot = new TelegramBot(token, {
   polling: true
 })
 
+const brewCommand = new Command('/brew', "Let's make coffee", () => {})
+const addRecipeCommand = new Command('/add_recipe', 'Add a recipe', () => {})
+const settingsCommand = new Command('/settings', 'Settings', () => {})
+const feedbackCommand = new Command('/feedback', 'Leave feedback', () => {})
+
+const myCommands = [
+  brewCommand.toBotCommandFormat(),
+  addRecipeCommand.toBotCommandFormat(),
+  settingsCommand.toBotCommandFormat(),
+  feedbackCommand.toBotCommandFormat()
+]
+
+void bot.setMyCommands(myCommands)
+
 bot.on('text', async (message: TelegramBot.Message) => {
   const messageText = message.text ?? ''
+  console.log(messageText)
+
+  if (['/brew', '/add_recipe', '/settings', '/feedback'].includes(messageText)) {
+    await bot.sendMessage(message.chat.id, 'This feature is currently under development 🧑‍💻')
+  }
+
   const coffeeGrams = parseInt(messageText, 10)
 
   const coffeeGramsValidator = new CoffeeGramsValidator(coffeeGrams)
